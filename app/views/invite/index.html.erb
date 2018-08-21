@@ -12,53 +12,175 @@
   <!-- End Google Analytics -->
 <% end %>
 
-<div class="container" style="text-align: center; max-width: 350px; padding-top: 20px;">
-  <% if @metadata[:icon_url] %>
-    <%= image_tag @metadata[:icon_url], class: "appIcon", style: "margin-bottom: 30px;" %>
-  <% else %>
-    <div style="margin-bottom: 20px"></div>
-  <% end %>
+<div class="container">
+			<header class="header">
+        <div>
+				<h1>Hoard </h1>
+        <h2>JOIN THE <span class="smallbig">(Alpha)</span> TESTING PHASE</h2>
+      </div>
+			</header>
+			<div class="content">
+				<section class="section">
+					<h3 class="title">Android</h3>
+          <p>Note: This phase is currently by invite only!</p>
 
-  <h4 class="" style="margin-bottom: 40px;">Android</h4>
-  <a href="https://play.google.com/apps/testing/com.hoardinc.Hoard">https://play.google.com/apps/testing/com.hoardinc.Hoard</a>
-  <br />
-  <br />
-  <% unless @message %>
-    <h4 class="" style="margin-bottom: 40px;"><%= @metadata[:title] %></h4>
+          <a class="btn btn-lg btn-primary btn-block button" href="https://play.google.com/apps/testing/com.hoardinc.Hoard">View Hoard on the Google Play Store</a>
 
-    <%= form_tag("submit", method: "post", style: "text-align: left", onsubmit: "didSubmit()") do %>
-      <%= label_tag(:first_name, t(:first_name_label)) %>
-      <%= text_field_tag :first_name, '', class: "form-control", placeholder: t(:first_name_placeholder) %><br />
-      <%= label_tag(:last_name, t(:last_name_label)) %>
-      <%= text_field_tag :last_name, '', class: "form-control", placeholder: t(:last_name_placeholder) %><br />
-      <%= label_tag(:email, t(:email_label), class: "required") %>
-      <%= email_field_tag :email, '', class: "form-control", placeholder: t(:email_placeholder) %><br />
+				</section>
+			</div>
+			<div class="content">
+				<section class="section">
+					<h3 class="title">iPhone</h3>
 
-      <% if ENV["ITC_TOKEN"] %>
-        <% if params[:token] %>
-          <%= hidden_field_tag :token, '', value: params[:token] %>
-        <% else %>
-          <%= label_tag(:token, t(:password_label)) %>
-          <%= password_field_tag :token, '', class: "form-control", placeholder: t(:password_placeholder) %><br />
-        <% end %>
-      <% end %>
+          <p>Note: This phase is currently by invite only!</p>
 
-      <br />
-      <%= submit_tag t(:get_beta_access), class: 'btn btn-lg btn-primary btn-block', id: "submit" %>
-    <% end %>
-  <% else %>
-    <p class="alert alert-<%= @type %>">
-      <%= @message %>
-    </p>
-  <% end %>
+          <% unless @message %>
+            <%= form_tag("submit", method: "post", style: "text-align: left", onsubmit: "didSubmit()") do %>
+              <%= label_tag(:first_name, t(:first_name_label)) %>
+              <%= text_field_tag :first_name, '', class: "form-control", placeholder: t(:first_name_placeholder) %><br />
+              <%= label_tag(:last_name, t(:last_name_label)) %>
+              <%= text_field_tag :last_name, '', class: "form-control", placeholder: t(:last_name_placeholder) %><br />
+              <%= label_tag(:email, t(:email_label), class: "required") %>
+              <%= email_field_tag :email, '', class: "form-control", placeholder: t(:email_placeholder) %><br />
 
-  <p class="footer">
-    <% if @imprint_url %>
-      <%= link_to t(:imprint), @imprint_url, target: "_blank" %> |
-    <% end %>
-    Powered by <a href="https://fastlane.tools" target="_blank">fastlane</a>
-  </p>
-</div>
+              <% if ENV["ITC_TOKEN"] %>
+                <% if params[:token] %>
+                  <%= hidden_field_tag :token, '', value: params[:token] %>
+                <% else %>
+                  <%= label_tag(:token, t(:password_label)) %>
+                  <%= password_field_tag :token, '', class: "form-control", placeholder: t(:password_placeholder) %><br />
+                <% end %>
+              <% end %>
+
+              <br />
+              <%= submit_tag t(:get_beta_access), class: 'btn btn-lg btn-primary btn-block button', id: "submit" %>
+            <% end %>
+          <% else %>
+            <p class="alert alert-<%= @type %>">
+              <%= @message %>
+            </p>
+          <% end %>
+
+				</section>
+			</div>
+		</div>
+
+    <style type="text/css">
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.clearfix:before,
+.clearfix:after {
+  content: '';
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+
+body {
+  min-height: 100%;
+  font-family: 'Helvetica Neue', 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+  color: #efefef;
+  background: linear-gradient(-136deg, #383B4F 0%, #1B222C 48%);
+  padding: 2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  outline: none; }
+
+a:hover,
+a:focus {
+  color: #fff; }
+
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+.content{
+  color: #555;
+  background: #fff;
+  padding: 2em;
+  display: flex;
+  border-radius: 8px;
+}
+.content + .content {
+  margin-top: 3em;
+  margin-bottom: 3em;
+
+}
+
+.hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  pointer-events: none; }
+
+.logo{
+  height: 7em;
+  width: 7em;
+  margin-right: 1em;
+}
+.header {
+  padding: 3em 2em;
+  display: flex;
+  align-items: stretch;
+}
+
+
+.header h1 {
+  font-size: 4em;
+  line-height: 0.9;
+  margin: 0;
+  font-weight: 200;
+}
+
+.header h2 {
+  font-size: .85em;
+  display: block;
+  padding: 0.5em 0 0 0.15em;
+  line-height: 1.5;
+  color: #ddd;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+.smallbig{
+  margin: 0;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+.button{
+  -webkit-font-smoothing: antialiased;
+background-color: #1B222C;
+border: none;
+display: inline-block;
+font-family: 'Montserrat', sans-serif;
+font-size: 0.85em;
+font-weight: 700;
+text-decoration: none;
+user-select: none;
+letter-spacing: 0.1em;
+color: white;
+padding: 20px 40px;
+text-transform: uppercase;
+-webkit-transition: background-color 0.1s ease-out;
+-moz-transition: background-color 0.1s ease-out;
+transition: background-color 0.1s ease-out;
+}
+
+</style>
+
 
 <script type="text/javascript">
   function didSubmit() {
@@ -66,27 +188,3 @@
     $("#submit").prop('disabled', true)
   }
 </script>
-
-<style type="text/css">
-  .appIcon {
-    -webkit-border-radius: 22.544%;
-       -moz-border-radius: 22.544%;
-        -ms-border-radius: 22.544%;
-            border-radius: 22.544%;
-
-    width: 256px;
-  }
-  #submit {
-    margin-bottom: 20px;
-  }
-  .footer {
-    color: #888;
-  }
-  @media screen and (min-width: 800px) {
-    .footer {
-      position: absolute;
-      bottom: 10px;
-      right: 25px;
-    }
-  }
-</style>
