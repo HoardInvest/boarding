@@ -12,21 +12,31 @@
   <!-- End Google Analytics -->
 <% end %>
 
+<!--
+ ######\  #######\  ##\   ##\  ######\
+##  __##\ ##  __##\ ## |  ## |##  __##\
+## /  \__|## |  ## |## |  ## |## /  \__|
+## |####\ #######  |## |  ## |## |####\
+## |\_## |##  __##< ## |  ## |## |\_## |
+## |  ## |## |  ## |## |  ## |## |  ## |
+\######  |## |  ## |\######  |\######  |
+ \______/ \__|  \__| \______/  \______/
+-->
+
 <div class="container">
+  <span class="testnet-warning">WARNING: TESTNET VERSION ONLY</span>
 			<header class="header">
         <div>
 				   <h1>Hoard </h1>
            <h2>JOIN THE <span class="smallbig">(Alpha)</span> TESTING PHASE</h2>
-         </div>
+        </div>
         <div>
           <a class="btn btn-lg btn-primary btn-block button button-white" href="https://hoardinvest.com/token/">Buy Tokens</a>
-         </div>
+        </div>
 			</header>
 			<div class="content">
 				<section class="section">
 					<h3 class="title">Android</h3>
-          <p>Note: This phase is currently by invite only!</p>
-
           <a class="btn btn-lg btn-primary btn-block button" href="https://play.google.com/apps/testing/com.hoardinc.Hoard">View Hoard on the Google Play Store</a>
 
 				</section>
@@ -34,9 +44,6 @@
 			<div class="content">
 				<section class="section">
 					<h3 class="title">iPhone</h3>
-
-          <p>Note: This phase is currently by invite only!</p>
-
           <% unless @message %>
             <%= form_tag("submit", method: "post", style: "text-align: left", onsubmit: "didSubmit()") do %>
               <%= label_tag(:first_name, t(:first_name_label)) %>
@@ -104,6 +111,7 @@ a:hover,
 a:focus {
   color: #fff; }
 
+
 .container {
   position: relative;
   overflow: hidden;
@@ -121,6 +129,7 @@ a:focus {
   margin-bottom: 3em;
 
 }
+
 
 .hidden {
   position: absolute;
@@ -140,6 +149,7 @@ a:focus {
   align-items: stretch;
   justify-content: space-between;
 }
+
 
 
 .header h1 {
@@ -179,17 +189,33 @@ letter-spacing: 0.1em;
 color: white;
 padding: 20px 40px;
 text-transform: uppercase;
+white-space: normal;
 -webkit-transition: background-color 0.1s ease-out;
 -moz-transition: background-color 0.1s ease-out;
 transition: background-color 0.1s ease-out;
 }
 
 .button-white{
-color: #1B222C;
-background-color: #fff;
+  color: #1B222C;
+  background-color: #fff;
+}
+
+span.testnet-warning{
+  display: block;
+  background: #ff6161;
+  border-radius: 5px;
+  color: white;
+  padding: 15px;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 
+@media (max-width: 400px) {
+  .header{
+    display: block;
+  }
+}
 </style>
 
 
